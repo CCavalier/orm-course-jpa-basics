@@ -2,7 +2,7 @@ package fr.fteychene.orm.jpabasics.manytoone;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "MANY_TO_ONE_ACCOUNT")
 @Table(name = "MANY_TO_ONE_ACCOUNT")
 public class Account {
    @Id
@@ -13,6 +13,7 @@ public class Account {
    private double balance;
 
    @ManyToOne
+   @JoinColumn(name = "fk_user")
    private Person person;
 
    public Long getId() {
@@ -37,7 +38,7 @@ public class Account {
 
    @Override
    public String toString() {
-      return "OneToManyAccount{" +
+      return "ManyToOneAccount{" +
             "id=" + id +
             ", balance=" + balance +
             '}';
