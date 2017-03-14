@@ -78,7 +78,7 @@ public class JpaApplication {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(datasource);
         entityManagerFactoryBean.setPersistenceXmlLocation("META-INF/jpa-persistance.xml");
-        entityManagerFactoryBean.setPersistenceUnitName("hibernate-workshop");
+        entityManagerFactoryBean.setPersistenceUnitName("jpa-workshop");
         entityManagerFactoryBean.setJpaProperties(hibernateProperties());
 
 
