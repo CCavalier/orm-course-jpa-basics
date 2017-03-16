@@ -1,5 +1,6 @@
 package fr.fteychene.orm.jpabasics.manytoone;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,8 @@ import java.util.stream.Collectors;
 /**
  * Created by fteychene on 15/03/17.
  */
-@Repository
+@Repository(value = "manyToOnePersonDao")
+@Qualifier("manytoone")
 public class PersonDao {
 
     @PersistenceContext

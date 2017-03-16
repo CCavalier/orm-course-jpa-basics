@@ -1,62 +1,54 @@
-package com.ig.training.hibernate.domainmodel.manytomany_bidirectional;
+package fr.fteychene.orm.jpabasics.manytomany;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "M2M_B_PERSON")
-public class ManyToManyPerson {
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
-   private Long id;
+@Entity(name = "manyToManyPerson")
+@Table(name = "ManyToMany_PERSON")
+public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-   @Column(name = "FIRST_NAME")
-   private String name;
-
-
-   @ManyToMany(cascade = {CascadeType.ALL})
-   @JoinTable(
-         name = "M2M_B_PERSON_ACCOUNT",
-         joinColumns = {@JoinColumn(name = "PERSON_ID")},
-         inverseJoinColumns = {@JoinColumn(name = "ACCOUNT_ID")}
-   )
-   private List<ManyToManyAccount> accounts = new ArrayList<>();
+    @Column(name = "FIRST_NAME")
+    private String name;
 
 
-   public Long getId() {
-      return id;
-   }
+    @ManyToMany
+    @JoinTable(
+            name = "ManyToMany_PERSON_ACCOUNT",
+            joinColumns = {@JoinColumn(name = "PERSON_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ACCOUNT_ID")}
+    )
+    private List<Account> accounts = new ArrayList<>();
 
-   public String getName() {
-      return name;
-   }
 
-   public void setName(String name) {
-      this.name = name;
-   }
+    public Long getId() {
+        return id;
+    }
 
-   public List<ManyToManyAccount> getAccounts() {
-      return accounts;
-   }
+    public String getName() {
+        return name;
+    }
 
-   public void setAccounts(List<ManyToManyAccount> accounts) {
-      this.accounts = accounts;
-   }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-   @Override
-   public String toString() {
-      return "OneToOnePerson{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            '}';
-   }
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    @Override
+    public String toString() {
+        return "ManyToManyPerson{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

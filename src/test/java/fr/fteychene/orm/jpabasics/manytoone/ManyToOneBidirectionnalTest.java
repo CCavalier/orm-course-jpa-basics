@@ -5,6 +5,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.Arrays;
 
@@ -14,9 +15,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ManyToOneBidirectionnalTest extends AbstractJpaTest {
 
    @Autowired
+   @Qualifier("manytoone")
    PersonDao personDao;
 
    @Autowired
+   @Qualifier("manytoone")
    AccountDao accountDao;
 
    @Test

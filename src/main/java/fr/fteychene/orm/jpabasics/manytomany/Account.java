@@ -1,11 +1,12 @@
-package com.ig.training.hibernate.domainmodel.manytomany_bidirectional;
+package fr.fteychene.orm.jpabasics.manytomany;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "M2M_B_ACCOUNT")
-public class ManyToManyAccount {
+@Entity(name = "manyToManyAccount")
+@Table(name = "ManyToMany_ACCOUNT")
+public class Account {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    private Long id;
@@ -14,7 +15,7 @@ public class ManyToManyAccount {
    private double balance;
 
    @ManyToMany(mappedBy = "accounts")
-   private List<ManyToManyPerson> people = new ArrayList<>();
+   private List<Person> people = new ArrayList<>();
 
    public Long getId() {
       return id;
@@ -28,11 +29,11 @@ public class ManyToManyAccount {
       this.balance = balance;
    }
 
-   public List<ManyToManyPerson> getPeople() {
+   public List<Person> getPeople() {
       return people;
    }
 
-   public void setPeople(List<ManyToManyPerson> people) {
+   public void setPeople(List<Person> people) {
       this.people = people;
    }
 
