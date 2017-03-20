@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 
+import javax.transaction.Transactional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -37,6 +39,7 @@ public class OneToManyTest extends AbstractJpaTest {
     }
 
     @Test
+    @Transactional
     public void _2_load() {
         Person person = personDao.find(1L);
 

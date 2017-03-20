@@ -7,6 +7,7 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,6 +43,7 @@ public class ManyToOneBidirectionnalTest extends AbstractJpaTest {
    }
 
    @Test
+   @Transactional
    public void _2_load() {
       Account account = accountDao.find(1l);
       assertThat(account).isNotNull();

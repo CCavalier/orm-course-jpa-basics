@@ -13,6 +13,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @ContextConfiguration(classes = TestSingleEntityBottomUp.OverrideConfiguration.class)
 @ActiveProfiles("embeddedDatasource")
+@Transactional
 public class TestSingleEntityBottomUp extends AbstractJpaTest {
 
     @Configuration

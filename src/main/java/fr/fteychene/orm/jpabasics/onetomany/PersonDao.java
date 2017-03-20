@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.stream.Collectors;
 
 /**
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
  */
 @Repository(value = "oneToManyPersonDao")
 @Qualifier("onetomany")
+@Transactional
 public class PersonDao {
 
     @PersistenceContext

@@ -58,6 +58,7 @@ public class ManyToManyTest extends AbstractJpaTest {
     }
 
     @Test
+    @javax.transaction.Transactional
     public void _2_test_insert_multiple_person_with_accounts() {
         Person person1 = new Person();
         person1.setName("Augusto");

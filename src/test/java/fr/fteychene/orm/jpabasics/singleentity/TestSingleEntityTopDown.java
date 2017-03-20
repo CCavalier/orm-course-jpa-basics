@@ -5,12 +5,15 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import javax.transaction.Transactional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by fteychene on 14/03/17.
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@Transactional
 public class TestSingleEntityTopDown extends AbstractJpaTest {
 
 

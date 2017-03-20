@@ -15,7 +15,6 @@ import javax.transaction.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {JpaApplication.class})
-@Transactional
 @Rollback(false)
 public abstract class AbstractJpaTest {
 
@@ -31,11 +30,6 @@ public abstract class AbstractJpaTest {
 
    public EntityManagerFactory emf() {
       return emf;
-   }
-
-   @After
-   public void asdas() {
-
    }
 
 }
