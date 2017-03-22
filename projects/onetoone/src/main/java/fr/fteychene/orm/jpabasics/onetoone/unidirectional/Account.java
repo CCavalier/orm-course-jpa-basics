@@ -2,7 +2,7 @@ package fr.fteychene.orm.jpabasics.onetoone.unidirectional;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Account_UNI")
 public class Account {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
