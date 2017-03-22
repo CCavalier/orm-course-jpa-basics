@@ -2,8 +2,12 @@ title : Les bases de JPA
 plan:
   - title: Entity definition
     statement: markdowns/entity.md
+  - title: Associations 1 - 1
+    statement: markdowns/association1-1.md
   - title: Associations 1 - N
     statement: markdowns/association1-N.md
+  - title: Association N - N
+    statement: markdowns/associationN-N.md
 
 projects:
   entity:

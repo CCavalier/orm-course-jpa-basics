@@ -1,19 +1,17 @@
-package fr.fteychene.orm.jpabasics.onetoone.unidirectional;
+package fr.fteychene.orm.jpabasics.manytomany;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
+
 public class Account {
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+
    private Long id;
 
-   @Column(name="balance")
    private double balance;
 
-   @OneToOne
-   @JoinColumn(name="PERSON_ID")
-   private Person person;
+   private List<Person> people = new ArrayList<>();
 
    public Long getId() {
       return id;
@@ -27,12 +25,12 @@ public class Account {
       this.balance = balance;
    }
 
-   public Person getPerson() {
-      return person;
+   public List<Person> getPeople() {
+      return people;
    }
 
-   public void setPerson(Person person) {
-      this.person = person;
+   public void setPeople(List<Person> people) {
+      this.people = people;
    }
 
    @Override
@@ -40,7 +38,7 @@ public class Account {
       return "Account{" +
             "id=" + id +
             ", balance=" + balance +
-            ", person=" + person +
+            ", people=" + people +
             '}';
    }
 }

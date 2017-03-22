@@ -2,17 +2,13 @@ package fr.fteychene.orm.jpabasics.onetoone.unidirectional;
 
 import javax.persistence.*;
 
-@Entity
+
 public class Account {
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+
    private Long id;
 
-   @Column(name="balance")
    private double balance;
 
-   @OneToOne
-   @JoinColumn(name="PERSON_ID")
    private Person person;
 
    public Long getId() {

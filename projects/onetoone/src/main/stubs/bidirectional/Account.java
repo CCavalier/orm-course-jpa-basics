@@ -1,18 +1,13 @@
-package fr.fteychene.orm.jpabasics.onetoone.unidirectional;
+package fr.fteychene.orm.jpabasics.onetoone.bidirectional;
 
 import javax.persistence.*;
 
-@Entity
 public class Account {
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+
    private Long id;
 
-   @Column(name="balance")
    private double balance;
 
-   @OneToOne
-   @JoinColumn(name="PERSON_ID")
    private Person person;
 
    public Long getId() {
@@ -33,11 +28,12 @@ public class Account {
 
    public void setPerson(Person person) {
       this.person = person;
+      person.setAccount(this);
    }
 
    @Override
    public String toString() {
-      return "Account{" +
+      return "OneToOneAccount{" +
             "id=" + id +
             ", balance=" + balance +
             ", person=" + person +

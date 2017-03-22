@@ -2,13 +2,10 @@ package fr.fteychene.orm.jpabasics.onetoone.unidirectional;
 
 import javax.persistence.*;
 
-@Entity
 public class Person {
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+
    private Long id;
 
-   @Column(name = "FIRST_NAME")
    private String name;
 
    public Long getId() {
