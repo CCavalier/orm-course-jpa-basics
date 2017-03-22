@@ -7,33 +7,20 @@ import java.util.Date;
 /**
  * Created by fteychene on 14/03/17.
  */
-@Entity
-@Table(name= "USERS")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name= "ID")
     private Long id;
 
-    @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
 
-    @Column(name = "LAST_NAME")
     private String lastName;
 
-    @Column(name="MAIL", unique = true)
     private String email;
 
-    @Column(name = "BDATE")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date dateOfBirth;
 
-    @Column(name = "MSTATUS")
-    @Enumerated(EnumType.STRING)
     private MaritalStatus martialStatus;
 
-    @Transient
     private Integer counter;
 
     public Long getId() {

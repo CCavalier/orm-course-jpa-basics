@@ -1,11 +1,18 @@
 package fr.fteychene.orm.jpabasics.entity;
 
 import fr.fteychene.orm.jpabasics.AbstractJpaTest;
+import fr.fteychene.orm.jpabasics.JpaApplication;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
@@ -19,10 +26,24 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Created by fteychene on 14/03/17.
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@ContextConfiguration(classes = TestEntityBottomUp.OverrideConfiguration.class)
+@ActiveProfiles("embeddedDatasource")
 @Transactional
-public class TestSingleEntityTopDown extends AbstractJpaTest {
+public class TestEntityBottomUp extends AbstractJpaTest {
 
-    Logger logger = LoggerFactory.getLogger(TestSingleEntityTopDown.class);
+    Logger logger = LoggerFactory.getLogger(TestEntityBottomUp.class);
+
+    @Configuration
+    @JpaApplication.OverrideConfiguration
+    @PropertySource("classpath:singleentity/override.properties")
+    static class OverrideConfiguration {
+
+        @Bean
+        @Qualifier("scripts")
+        public String[] startupScripts() {
+            return new String[] {"singleentity/create-db.sql"};
+        }
+    }
 
     @Test
     public void _1_create() {
