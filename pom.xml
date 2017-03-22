@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>projects/entity</module>
+        <module>projects/onetoone</module>
         <module>projects/onetomany</module>
         <module>projects/manytoone</module>
         <module>projects/manytomany</module>
