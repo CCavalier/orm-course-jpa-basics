@@ -8,6 +8,8 @@ plan:
     statement: markdowns/association1-N.md
   - title: Association N - N
     statement: markdowns/associationN-N.md
+  - title: Stratégies de chargement
+    statement: markdowns/lazyloading.md
 
 projects:
   entity:
